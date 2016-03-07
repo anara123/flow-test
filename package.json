@@ -1,0 +1,20 @@
+{
+  "name": "codefresh-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -c --reporter spec ./src/**/*.test.js",
+    "test:dev": "npm run test -- -w"
+  },
+  "keywords": [],
+  "author": "Anar Azadaliyev <anar.azadaliyev@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "uuid": "^2.0.1"
+  }
+}

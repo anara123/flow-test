@@ -1,0 +1,14 @@
+{
+  "browser": true,
+  "esnext": true,
+  "globals": {
+  	"require": true
+  },
+  "globalstrict": true,
+  "quotmark": true,
+  "undef": true,
+  "unused": true,
+  "node": true,
+  "mocha": true,
+  "esnext": true
+}
