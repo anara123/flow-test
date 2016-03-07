@@ -15,10 +15,12 @@ var Flow = {
 
   add: function (nextStep) {
     var _this = this
+    var emit = _this.emit.bind(_this)
+
     this.promiseChain = this.promiseChain.then(function (data) {
       return new Promise((resolve, reject) => {
         try {
-          nextStep(data, resolve, reject, _this.emit.bind(_this))
+          nextStep(data, resolve, errorOnReject(emit, reject), emit)
         }
         catch (err) {
           _this.emit('error', err)
@@ -28,6 +30,16 @@ var Flow = {
     })
 
     return this
+  }
+}
+
+/**
+ * Create proxy function which will on every reject emit 'error' event
+ */
+function errorOnReject (emit, reject) {
+  return function (err) {
+    emit('error', err)
+    reject(err)
   }
 }
 
